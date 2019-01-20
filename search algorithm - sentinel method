@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int linsearch(int *arr, int n, int key) {
+	
+	arr[n] = key;
+	int i;
+	for(i = 0; i <= n; i++) {
+		
+		if(arr[i] == key)
+		break;
+	}
+	if(i == n)
+		return -1;
+	else return i;
+}
+int main(void) {
+	
+	int *arr;
+	int n, ky, i;
+	scanf("%d", &n); // input number of elements
+	arr = calloc(n+1, sizeof(int));
+	for(i = 0; i < n; i++) {
+		
+		scanf("%d", &arr[i]);
+	}
+	scanf("%d", &ky); // input number to find
+	
+	int idx = linsearch(arr, n, ky);
+	
+	if(idx == -1)
+	printf("failed to find");
+	else
+	printf("it\'s on %d", idx);
+	
+	return 0; 
+}
