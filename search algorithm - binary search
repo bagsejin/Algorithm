@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int binsearch(int *arr, int n, int key) {
+	
+	int l = 0;
+	int r = n - 1;
+	int m;
+	int i;
+	for (i = 0; i < n; i++) {
+
+		m = l + (r - l) / 2;
+		if (arr[m] == key)
+			return m;
+		else if (arr[m] > key)
+			r = m - 1;
+		else if (arr[m] < key)
+			l = m + 1;
+	}
+}
+int main(void) {
+
+	int *arr;
+	int n, ky, i;
+	scanf("%d", &n); // input number of elements
+	arr = calloc(n, sizeof(int));
+	for (i = 0; i < n; i++) {
+
+		scanf("%d", &arr[i]); // Enter in ascending order
+	}
+	scanf("%d", &ky); // input number to find
+
+	int idx = binsearch(arr, n, ky);
+
+	if (idx == -1)
+		printf("failed to find");
+	else
+		printf("it\'s on %d", idx);
+
+	return 0;
+}
