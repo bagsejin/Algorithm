@@ -1,0 +1,27 @@
+#include <stdio.h>
+int Getmin(int *arr, int n) {
+	
+	int i;
+	int min = arr[0];
+	for(i = 0; i < n; i++) {
+		
+		if(min > arr[i])
+		min = arr[i];
+	}
+	
+	return min;
+}
+int main(void) {
+	
+	int arr[3];
+	int i;
+	for(i = 0; i < 3; i++) {
+		
+		scanf("%d", &arr[i]);
+	}
+	int min = Getmin(arr, 3);
+	
+	printf("%d", min);
+	
+	return 0;
+}
